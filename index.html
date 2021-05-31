@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Car</title>
+    <title>Car</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -26,6 +28,19 @@
       </div>
     </div>
     <script>
+      function ready() {
+        const { type } = screen.orientation;
+        console.log(`Fullscreen and locked to ${type}. Ready!`);
+      }
+
+      async function start() {
+        await document.body.requestFullscreen();
+        await screen.orientation.lock("landscape");
+        ready();
+      }
+
+
+
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Builds.loader.js";
       var config = {
