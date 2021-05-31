@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Car</title>
+    <title>Oh My Cars</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script type="text/javascript" src="main.js"></script>
@@ -24,9 +24,13 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Car</div>
+        <div id="unity-build-title">Oh My Cars</div>
       </div>
     </div>
+
+    <button type="button" onclick="start()" class="block">Block Button</button>
+
+
     <script>
       function ready() {
         const { type } = screen.orientation;
@@ -34,12 +38,11 @@
       }
 
       async function start() {
+        console.log("Start");
         await document.body.requestFullscreen();
         await screen.orientation.lock("landscape");
         ready();
       }
-
-
 
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Builds.loader.js";
@@ -48,8 +51,8 @@
         frameworkUrl: buildUrl + "/Builds.framework.js",
         codeUrl: buildUrl + "/Builds.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Car",
+        companyName: "Trasnform IT",
+        productName: "Oh My Cars",
         productVersion: "1.0",
       };
 
