@@ -23,42 +23,5 @@ window.addEventListener('load', (event) => {
   } else if (orientation === undefined) {
     console.log("The orientation API isn't supported in this browser :(");
   }
-  var fullscreenbuttonUnity = document.getElementById("unity-fullscreen-button");
-  var fullscreenbutton = document.getElementById("FullscreenButton");
-  fullscreenbutton.addEventListener('click',(event)=>{
-
-    console.log("Button clicked")
-    toggleElement(fullscreenbutton);
-
-    //fullscreenbuttonUnity.click();
-
-    unityInstance.SetFullscreen(1);
-  });
-
-  
-
-  start();
 
 });
-
-
-function ready() {
-  const { type } = screen.orientation;
-  console.log(`Fullscreen and locked to ${type}. Ready!`);
-}
-
-async function start() {
-  console.log("Start");
-  await document.body.requestFullscreen();
-  await screen.orientation.lock("landscape");
-  ready();
-}
-
-
-function toggleElement(element) {
-  if (element.style.display === "none") {
-    element.style.display = "block";
-  } else {
-    element.style.display = "none";
-  }
-}
