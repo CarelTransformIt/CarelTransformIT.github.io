@@ -45,6 +45,8 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var mobileWarning = document.querySelector("#unity-mobile-warning");
 
+      var myGameInstance = {};
+
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
       // Set this to false if you want to decouple this synchronization from
@@ -73,6 +75,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          myGameInstance = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
